@@ -14,13 +14,13 @@ export default function Navbar() {
         <NavigationMenu>
             <NavigationMenuList>
                 <NavigationMenuItem>
-                    <NavigationMenuTrigger>Home</NavigationMenuTrigger>
+                    <NavigationMenuTrigger className="cursor-pointer text-xl font-semibold">Home</NavigationMenuTrigger>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                    <NavigationMenuTrigger>Features</NavigationMenuTrigger>
+                    <NavigationMenuTrigger className="cursor-pointer text-xl font-semibold">Features</NavigationMenuTrigger>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                    <NavigationMenuTrigger>Demo</NavigationMenuTrigger>
+                    <NavigationMenuTrigger className="cursor-pointer text-xl font-semibold">Demo</NavigationMenuTrigger>
                 </NavigationMenuItem>
             </NavigationMenuList>
         </NavigationMenu>

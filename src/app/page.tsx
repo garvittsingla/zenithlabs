@@ -3,16 +3,17 @@
 import Image from "next/image";
 import Navbar from "@/components/selfcomp/navbar";
 import Hyperspeed from "./Hyperspeed/Hyperspeed";
+import { GlowEffectCardBackground } from "@/components/selfcomp/gloweffect";
+import { GradientButton } from "@/components/ui/gradient-button";
 
 export default function Home() {
     return (
-        <div className="antialiased border-box p-4 h-screen w-full flex flex-col items-center gap-12">
-            <div>
+        <div className="antialiased border-box p-4 h-screen w-full flex flex-col items-center gap-6">
+            <div className="mb-15 flex flex-row gap-10">
                 <Navbar />
-            </div>
-            <div className=" overflow-hidden  h-full w-full flex items-center justify-between border-box">
-                <Hyperspeed  />
-            </div>
+                <GradientButton variant={"variant"}>Log In</GradientButton>
+            </div>            
+            <GlowEffectCardBackground />
         </div>
     );
 }
