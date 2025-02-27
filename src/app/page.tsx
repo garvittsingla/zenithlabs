@@ -10,8 +10,8 @@ export default function Home() {
             <div>
                 <Navbar />
             </div>
-            <div className="border-white border-1 w-[500px] h-[400px] border-box">
-                <Hyperspeed />
+            <div className=" overflow-hidden  h-full w-full flex items-center justify-between border-box">
+                <Hyperspeed  />
             </div>
         </div>
     );
