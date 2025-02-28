@@ -9,8 +9,8 @@ const gradientButtonVariants = cva(
   [
     "gradient-button",
     "inline-flex items-center justify-center",
-    "rounded-[11px] min-w-[132px] px-7 py-2",
-    "text-base leading-[19px] font-[500] text-white",
+    "rounded-[11px] min-w-[132px] px-7 py-4",
+    "text-xl leading-[19px] font-[500] text-white",
     "font-sans font-bold",
     "focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring",
     "disabled:pointer-events-none disabled:opacity-50",
