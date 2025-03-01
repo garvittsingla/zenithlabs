@@ -1,5 +1,6 @@
 "use client"
 import ShinyText from '../../components/ui/ShinyText/ShinyText';
+
 // import { Toaster } from "@/components/ui/sonner"
 import {
     AlertDialog,
@@ -19,6 +20,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import ContentCard from '../../components/selfcomp/Card';
 import { toast ,Toaster} from 'sonner';
+import { BACKEND_URL } from '../config/config';
 
 export default function Dashboard() {
     const [link, setLink] = useState('')
@@ -30,7 +32,7 @@ export default function Dashboard() {
     async function sendLink() {
         const token = localStorage.getItem('token')
         try {
-            const response = await axios.post('http://localhost:8000/api/snippet/create', 
+            const response = await axios.post(`${BACKEND_URL}/api/snippet/create`, 
                 { url: link }, 
                 { headers: { Authorization: `${token}` }}
             )
@@ -47,7 +49,7 @@ export default function Dashboard() {
     async function getLinks() {
         const token = localStorage.getItem('token')
         try {
-            const response = await axios.get('http://localhost:8000/api/snippet/view', 
+            const response = await axios.get(`${BACKEND_URL}/api/snippet/view`, 
                 { headers: { Authorization: `${token}` }}
             )
             // Replace the snippets rather than appending to avoid duplicates
@@ -66,7 +68,7 @@ export default function Dashboard() {
         try {
             toast.success("AI is thinking...")
             try {
-                const response = await axios.post('http://localhost:8000/api/snippet/ai', 
+                const response = await axios.post(`${BACKEND_URL}/api/snippet/ai`, 
                     { prompt: prompt }, 
                     { headers: { Authorization: `${token}` }}
                 )
@@ -101,10 +103,10 @@ export default function Dashboard() {
     return (
         <div className="min-h-screen bg-black text-white">
             <Toaster />
-            {/* Navigation */}
-            <nav className="sticky top-0 z-10 border-b w-[80%] mx-auto p-4 mb-6">
+
+            <nav className="sticky top-0 backdrop-blur-md rounded-xl z-10 border-b w-[80%] mx-auto p-4 mb-6">
                 <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-4">
-                    <div className="flex items-center">
+                <div className="flex items-center">
                         <img className="h-10 w-10 md:h-12 md:w-12" src="logo.png" alt="Logo" />
                         <h1 className="ml-3 text-xl font-bold">Zenith</h1>
                     </div>
@@ -116,14 +118,14 @@ export default function Dashboard() {
                                         text="ASK AI" 
                                         disabled={false} 
                                         speed={3} 
-                                        className="text-sm md:text-base" 
+                                        className="text-sm md:text-base font-semibold" 
                                     />
                                 </button>
                             </AlertDialogTrigger>
                             
                             <AlertDialogContent className="w-[90%] max-w-md bg-black/80 border-gray-700">
                                 <AlertDialogHeader>
-                                    <AlertDialogTitle className="flex gap-2 items-center text-white">
+                                    <AlertDialogTitle className="flex  gap-2 items-center text-white">
                                         Ask AI <Brain/> 
                                     </AlertDialogTitle>
                                     <Input 
@@ -142,7 +144,7 @@ export default function Dashboard() {
                                         <Button 
                                             onClick={askAI} 
                                             type="submit"
-                                            className=""
+
                                         >
                                             ASK AI
                                         </Button>
@@ -159,7 +161,7 @@ export default function Dashboard() {
                                         text="Add Link" 
                                         disabled={false} 
                                         speed={3} 
-                                        className="text-sm md:text-base" 
+                                        className="text-sm md:text-base font-semibold" 
                                     />
                                 </button>
                             </AlertDialogTrigger>
@@ -223,7 +225,7 @@ export default function Dashboard() {
                 )}
                 
                 {/* Snippet List */}
-                <div className="flex flex-wrap  gap-3">
+                <div className="flex flex-wrap  gap-6  items-center justify-center  ">
                     {snippet && snippet.map((item, index) => (
                         <div key={index} className="">
                             <ContentCard item={item} />

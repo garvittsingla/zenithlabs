@@ -3,6 +3,7 @@
 import { Input } from "@/components/ui/input";
 import { useState } from "react";
 import axios from "axios";
+import { BACKEND_URL } from "../config/config";
 
 const Login = () => {
   const [username, setUsername] = useState("");
@@ -12,7 +13,7 @@ const Login = () => {
     const handleSubmit = async(e: any) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:8000/api/user/signin',{username:username,password:password})
+            const response = await axios.post(`${BACKEND_URL}/api/user/signin`,{username:username,password:password})
             localStorage.setItem('token',response.data.token)
             window.location.href = "/dashboard";
         } catch (error) {

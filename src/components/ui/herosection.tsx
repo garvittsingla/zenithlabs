@@ -12,7 +12,7 @@ export default function Herosection() {
             <div className="mb-15 flex flex-row gap-10 mt-5 justify-center w-full">
                 <img src="zenlogo.jpg" alt="comp-logo" className="rounded-md size-[50px]" />
                 <Navbar />
-                <GradientButton variant={"variant"}>Log In</GradientButton>
+                <GradientButton onClick={()=>(window.location.href="/signin")} variant={"variant"}>Log In</GradientButton>
             </div>
             {/* <GlowEffectCardBackground /> */}
             <div className="relative h-[100%] w-[100%] rounded-xl bg-black p-2 text-white dark:bg-[hsl(240, 8%, 5%)] dark:text-white overflow-hidden flex items-center justify-between border-box flex-col">

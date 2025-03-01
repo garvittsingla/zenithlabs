@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { ExternalLink } from 'lucide-react';
 import { XEmbed,YouTubeEmbed,PinterestEmbed,InstagramEmbed ,LinkedInEmbed   } from 'react-social-media-embed';
+import { img } from 'framer-motion/client';
 
 
 // Define the type for the content data
@@ -33,7 +34,7 @@ const ContentCard: React.FC<ContentCardProps> = ({ item }) => {
   
 
   return (
-    <div className="bg-zinc-950 rounded-lg overflow-hidden shadow-lg border border-gray-800 hover:border-gray-700 transition-all duration-300 w-64 ">
+    <div className="bg-zinc-950 rounded-lg overflow-hidden h-[600px] shadow-lg border border-gray-800 hover:border-gray-700 transition-all duration-300 w-64 ">
       {/* Embedded content section */}
     <div className="h-64 bg-gray-900">
         {item.platform.toLowerCase() === 'x' && (
@@ -68,9 +69,12 @@ const ContentCard: React.FC<ContentCardProps> = ({ item }) => {
       {/* Content information */}
       <div className="p-4">
         <div className="flex items-center justify-between mb-2">
-          <span className="text-xs font-medium px-2 py-1 bg-gray-800 text-blue-400 rounded-full">
+          <a href={`https://www.${item.platform}.com`} target="_blank" className="flex items-center gap-2">
+          <span className="text-xs font-medium px-2 py-1 bg-gray-800 text-blue-400 rounded-full flex gap-2 items-center ">
             {item.platform}
+            <img className='h-5 w-5' src={`https://${item.platform}.com/favicon.ico`} alt="" />
           </span>
+          </a>
           <span className="text-xs text-gray-500">
             {formattedDate}
           </span>

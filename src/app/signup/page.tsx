@@ -2,6 +2,8 @@
 import { Input } from "@/components/ui/input";
 import { useState } from "react";
 import axios from 'axios'
+import { BACKEND_URL } from "../config/config";
+
 
 const SignUp = () => {
     const [username, setUsername] = useState("");
@@ -18,7 +20,7 @@ const SignUp = () => {
     
     //@ts-ignore
    try {
-        const response =await axios.post('http://localhost:8000/api/user/signup',{username:username,password:password})
+        const response =await axios.post(`${BACKEND_URL}/api/user/signup`,{username:username,password:password})
         console.log(response)
         alert("Sign up successful!, Please login to continue");
         window.location.href = "/signin";
